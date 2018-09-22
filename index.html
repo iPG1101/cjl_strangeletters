@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>ClaytonCode</title>
+	<link rel='favicon' href='pic/clayton_a.jpg' />
+	<link rel='icon' href='pic/clayton_a.jpg' />
+	<script type="text/javascript">
+		var fuck = function(elem){
+			document.querySelector('#fuck.fuck').innerHTML = '';
+			var fucked;
+			for(var i = 0; i < (elem.value.split('').length); i++) {
+				var char = (elem.value.split(''))[i].toLowerCase();
+				if(char.match(/[a-z]/)) { 
+					console.log(char);
+					fucked = new Image();
+					fucked.src = "pic/clayton_" + char + ".jpg";
+				} else {
+					var f = document.createElement('div');
+					f.style.display = char == '\n' ? 'block' : 'inline-block';
+					f.style.fontSize = '64px';
+					f.style.width = f.style.height = f.style.lineHeight = '96px'
+					f.style.textAlign = 'center';
+					f.innerText = char;
+					fucked = f;
+				}
+				((function() {
+					document.querySelector('#fuck.fuck').appendChild(this);
+					this.width=this.height=96;
+				}).bind(fucked))();
+			};
+		};
+	</script>
+</head>
+<body>
+	<textarea></textarea>
+	<div class='fuck' id='fuck'></div>
+	<button onclick='fuck(document.querySelector("textarea"))'>test</button>
+</body>
+</html>
